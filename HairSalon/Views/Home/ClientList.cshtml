@@ -1,0 +1,21 @@
+@{
+  Layout = "_Layout";
+}
+
+<h3>Below are the clients for this stylist</h3>
+
+<div id="client-list">
+  <table style="width=100%">
+    <tr>
+      <th>Name</th>
+      <th>Phone Number</th
+    </tr>
+    @foreach(var client in Model)
+    {
+      <tr>
+        <td>@client.GetName()</td>
+        <td>@client.GetPhoneNumber()</td>
+      </tr>
+    }
+  </table>
+</div>

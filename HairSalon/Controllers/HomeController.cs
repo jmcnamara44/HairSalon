@@ -30,6 +30,34 @@ namespace HairSalon.Controllers
             List<Stylist> allStylists = Stylist.GetAllStylists();
             return View(allStylists);
         }
+        [HttpGet("/remove-all-clients")]
+        public ActionResult RemoveAllClients()
+        {
+            return View();
+        }
+        [HttpGet("/fire-all-stylists")]
+        public ActionResult FireAllStylists()
+        {
+            return View();
+        }
+        [HttpGet("/confirm-remove-clients")]
+        public ActionResult ConfirmedRemoveAllClients()
+        {
+            Client.DeleteAll();
+            return View("Index");
+        }
+        [HttpGet("/confirm-fire-stylists")]
+        public ActionResult ConfirmedFireAllStylists()
+        {
+            Stylist.DeleteAll();
+            return View("Index");
+        }
+        [HttpGet("/client-list/{id}")]
+        public ActionResult ClientList(int id)
+        {
+            List<Client> allClients = Client.GetClientList(id);
+            return View(allClients);
+        }
         [HttpPost("/create-client")]
         public ActionResult CreateClient()
         {

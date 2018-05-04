@@ -12,7 +12,7 @@
       <th>Days Available</th>
       <th>Years Active</th>
       <th>Phone Number</th>
-      <th>Number of Clients</th>
+      <th>Client List</th>
     </tr>
     @foreach(var stylist in Model)
     {
@@ -21,7 +21,7 @@
         <td>@stylist.GetDaysAvailable()</td>
         <td>@stylist.GetYearsActive()</td>
         <td>@stylist.GetPhoneNumber()</td>
-        <td>Placeholder for count method</td>
+        <td><a href="/client-list/@stylist.GetId()">See @stylist.GetName()'s client list</td>
       </tr>
     }
   </table>
