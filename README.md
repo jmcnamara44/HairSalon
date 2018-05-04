@@ -6,12 +6,14 @@
 
 ## Description
 
-_This project will use C# to build and work with databases._
+_This project will use C# to build and work with databases for a hair salon.  In this databases there will be a one-to-many relationship between 2 tables, stylists and clients.  The clients table will have a column for stylist ID, because one stylist can have multiple clients but a client cannot have multiple stylists._
 
 ## Project Specs
 
-__
-
+_View stylist details._
+_View client details._
+_Add a new stylist._
+_Add a new client._
 
 ## Setup/Installation Requirements
 
