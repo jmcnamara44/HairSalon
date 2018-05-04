@@ -21,6 +21,27 @@ namespace HairSalon.Models
       _phoneNumer = phoneNumber;
       _id = id;
     }
+
+    public string GetName()
+    {
+      return _name;
+    }
+    public string GetDaysAvailable()
+    {
+      return _daysAvailable;
+    }
+    public int GetYearsActive()
+    {
+      return _yearsActive;
+    }
+    public string GetPhoneNumber()
+    {
+      return _phoneNumer;
+    }
+    public int GetId()
+    {
+      return _id;
+    }
     public static List<Stylist> GetAllStylists()
     {
       List<Stylist> allStylists = new List<Stylist> {};
@@ -45,6 +66,44 @@ namespace HairSalon.Models
         conn.Dispose();
       }
       return allStylists;
+    }
+    public void Save()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"INSERT INTO stylists (stylist_name, days_available, years_active, phone_number) VALUES (@name, @daysAvailable, @yearsActive, @phoneNumber);";
+
+      cmd.Parameters.Add(new MySqlParameter("@name", _name));
+      cmd.Parameters.Add(new MySqlParameter("@daysAvailable", _daysAvailable));
+      cmd.Parameters.Add(new MySqlParameter("@yearsActive", _yearsActive));
+      cmd.Parameters.Add(new MySqlParameter("@phoneNumber", _phoneNumer));
+
+      cmd.ExecuteNonQuery();
+      _id = (int) cmd.LastInsertedId;  // Notice the slight update to this line of code!
+
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
+    }
+    public static void DeleteAll()
+    {
+      MySqlConnection conn = DB.Connection();
+      conn.Open();
+
+      var cmd = conn.CreateCommand() as MySqlCommand;
+      cmd.CommandText = @"DELETE FROM stylists;";
+
+      cmd.ExecuteNonQuery();
+
+      conn.Close();
+      if (conn != null)
+      {
+        conn.Dispose();
+      }
     }
   }
 }

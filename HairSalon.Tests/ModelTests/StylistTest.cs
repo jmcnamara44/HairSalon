@@ -10,7 +10,7 @@ namespace HairSalon.Tests
   {
     public void Dispose()
     {
-
+      Stylist.DeleteAll();
     }
     public StylistTests()
     {
@@ -21,6 +21,15 @@ namespace HairSalon.Tests
     {
       int result = Stylist.GetAllStylists().Count;
       Assert.AreEqual(0, result);
+    }
+    [TestMethod]
+    public void Save_SaveToDb_StylistList()
+    {
+      Stylist testStylist = new Stylist("name", "days", 3, "555-5555");
+      testStylist.Save();
+      List<Stylist> testList1 = Stylist.GetAllStylists();
+      List<Stylist> testList2 = new List<Stylist> {testStylist};
+      Assert.AreEqual(testList1[0].GetName(), testList2[0].GetName());
     }
   }
 }

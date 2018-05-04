@@ -10,7 +10,7 @@ namespace HairSalon.Tests
   {
     public void Dispose()
     {
-
+      Client.DeleteAll();
     }
     public ClientTests()
     {
@@ -21,6 +21,15 @@ namespace HairSalon.Tests
     {
       int result = Client.GetAllClients().Count;
       Assert.AreEqual(0, result);
+    }
+    [TestMethod]
+    public void Save_SaveToDb_ClientList()
+    {
+      Client testClient = new Client("name", "555-5555", 3);
+      testClient.Save();
+      List<Client> testList1 = Client.GetAllClients();
+      List<Client> testList2 = new List<Client> {testClient};
+      Assert.AreEqual(testList1[0].GetName(), testList2[0].GetName());
     }
   }
 }
