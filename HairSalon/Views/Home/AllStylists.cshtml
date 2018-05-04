@@ -1,3 +1,28 @@
 @{
   Layout = "_Layout";
 }
+
+
+<h3>Below are the details for all stylists working in the salon</h3>
+
+<div id="stylists-list">
+  <table style="width=100%">
+    <tr>
+      <th>Name</th>
+      <th>Days Available</th>
+      <th>Years Active</th>
+      <th>Phone Number</th>
+      <th>Number of Clients</th>
+    </tr>
+    @foreach(var stylist in Model)
+    {
+      <tr>
+        <td>@stylist.GetName()</td>
+        <td>@stylist.GetDaysAvailable()</td>
+        <td>@stylist.GetYearsActive()</td>
+        <td>@stylist.GetPhoneNumber()</td>
+        <td>Placeholder for count method</td>
+      </tr>
+    }
+  </table>
+</div>

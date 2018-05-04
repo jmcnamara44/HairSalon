@@ -19,10 +19,17 @@ namespace HairSalon.Controllers
             List<Stylist> allStylists = Stylist.GetAllStylists();
             return View(allStylists);
         }
+        [HttpGet("/all-stylists")]
+        public ActionResult AllStylists()
+        {
+            List<Stylist> allStylists = Stylist.GetAllStylists();
+            return View(allStylists);
+        }
+
         [HttpPost("/create-client")]
         public ActionResult CreateClient()
         {
-            Client newClient = new Client(Request.Form["client-name"], Request.Form["phone-number"], Request.Form["stylist-name"]);
+            Client newClient = new Client(Request.Form["client-name"], Request.Form["phone-number"], Int32.Parse(Request.Form["stylist-name"]));
             newClient.Save();
             List<Stylist> allStylists = Stylist.GetAllStylists();
             return View("AllStylists", allStylists);

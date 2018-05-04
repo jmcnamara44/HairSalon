@@ -48,7 +48,7 @@ namespace HairSalon.Models
       cmd.Parameters.Add(new MySqlParameter("@stylistId", _stylistId));
 
       cmd.ExecuteNonQuery();
-      _id = (int) cmd.LastInsertedId;  // Notice the slight update to this line of code!
+      _id = (int) cmd.LastInsertedId;
 
       conn.Close();
       if (conn != null)
