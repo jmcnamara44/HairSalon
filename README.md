@@ -12,8 +12,8 @@ _This project will use C# to build and work with databases for a hair salon.  In
 
 _View stylist details._
 _View client details._
-_Add a new stylist._
-_Add a new client._
+//_Add a new stylist._
+//_Add a new client._
 
 ## Setup/Installation Requirements
 
