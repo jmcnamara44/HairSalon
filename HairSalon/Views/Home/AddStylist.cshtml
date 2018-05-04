@@ -1,3 +1,24 @@
 @{
   Layout = "_Layout";
 }
+
+<h2>Add a new stylist</h2>
+<form action="/create-stylist" method="post">
+  <div class="form-group">
+    <label for="stylist-name">Enter stylist's full name</label>
+    <input id="stylist-name" name="stylist-name" class="form-control" type="text" required>
+  </div>
+  <div class="form-group">
+    <label for="days-available">Enter stylist's available working days</label>
+    <input id="days-available" name="days-available" class="form-control" type="text" required>
+  </div>
+  <div class="form-group">
+    <label for="years-active">Enter stylist's number of years active as a stylist</label>
+    <input id="years-active" name="years-active" class="form-control" type="text" required>
+  </div>
+  <div class="form-group">
+    <label for="phone-number">Enter stylist's phone number</label>
+    <input id="phone-number" name="phone-number" class="form-control" type="text" required>
+  </div>
+  <button class="btn btn-primary" type="submit">Submit</button>
+</form>
