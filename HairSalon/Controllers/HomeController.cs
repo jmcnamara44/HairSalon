@@ -13,12 +13,19 @@ namespace HairSalon.Controllers
         {
             return View();
         }
-        // [HttpPost("/results")]
-        // public ActionResult Results()
-        // {
-        //     Word newWord = new Word(Request.Form["word"], Request.Form["sentence"]);
-        //     newWord.SetMatchCounter(newWord.RepeatCounter(newWord));
-        //     return View(newWord);
-        // }
+        [HttpGet("/add-client")]
+        public ActionResult AddClient()
+        {
+            List<Stylist> allStylists = Stylist.GetAllStylists();
+            return View(allStylists);
+        }
+        [HttpPost("/create-client")]
+        public ActionResult CreateClient()
+        {
+            Client newClient = new Client(Request.Form["client-name"], Request.Form["phone-number"], Request.Form["stylist-name"]);
+            newClient.Save();
+            List<Stylist> allStylists = Stylist.GetAllStylists();
+            return View("AllStylists", allStylists);
+        }
     }
 }
