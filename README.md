@@ -19,7 +19,10 @@ _View a stylists list of clients._
 ## Setup/Installation Requirements
 
 * _Clone repository from GitHub_
-* _Open .cshtml files into your browser of choice_
+* _Start the MAMP servers._
+* _Navigate into the project folder and run 'dotnet restore'._
+* _Run the command 'dotnet run'._
+* _Type 'http://localhost:5000' into your web browser._
 * _CREATE DATABASE jimmy_mcnamara;_
 * _USE jimmy_mcnamara;_
 * _CREATE TABLE stylists (id serial PRIMARY KEY, stylist_name VARCHAR(50), days_available VARCHAR(60), years_active int(2), phone_number VARCHAR(12));_
